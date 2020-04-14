@@ -5,7 +5,7 @@ repos:
     hooks:
     -   id: seed-isort-config
         # Declaramos donde se encuentra el código
-        args: [--application-directorie=coreapi]
+        args: [--application-directorie=api_belvo]
     # validación de paquetes tengab el siguiente orden
     # FUTURE,STDLIB,THIRDPARTY,FIRSTPARTY,LOCALFOLDER
     # https://www.python.org/dev/peps/pep-0008/#imports
