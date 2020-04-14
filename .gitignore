@@ -1,31 +1,3 @@
-Skip to content
-Why GitHub?
-Team
-Enterprise
-Explore
-Marketplace
-Pricing
-Search
-
-Sign in
-Sign up
-jpadilla
-/
-django-project-template
-Template
-26468464
- Code Issues 3 Pull requests 4 Actions Projects 0 Security Insights
-Join GitHub today
-GitHub is home to over 40 million developers working together to host and review code, manage projects, and build software together.
-
-django-project-template/.gitignore
-@BaptWaels BaptWaels fix (gitignore) : Django Stuff appears twice
-0db8ca8 on 1 Mar 2017
-@jpadilla@BaptWaels
-89 lines (70 sloc)  1.06 KB
-
-# Created by https://www.gitignore.io
-
 ### OSX ###
 .DS_Store
 .AppleDouble
@@ -110,3 +82,6 @@ target/
 *.pyc
 __pycache__/
 local_settings.py
+
+### Docker values
+docker/*/*/data
