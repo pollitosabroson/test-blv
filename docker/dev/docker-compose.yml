@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+
+  # Postgres BD
+  postgres_belvo:
+    build: postgres/
+    environment:
+      - POSTGRES_USER=belvo
+      - POSTGRES_PASSWORD=mypass
+      - POSTGRES_DB=belvo_bbdd
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+      - ./postgres/shared/:/data/shared
+
+  # API Belvo
+  api-belvo:
+    build: django/
+    command: sh /scripts/run_web.sh
+    volumes:
+      - ../../api_belvo:/app
+      - ./django/scripts:/scripts
+      - ./django/requirements.txt:/app/requirements.txt
+      - ./django/configs/config.yml:/configs/config.yml
+      - ./django/configs/pytest.ini:/app/pytest.ini
+    environment:
+      - PROJECT_SETTINGS_ENV=/configs/config.yml
+    env_file:
+      - ./django/configs/.env
+    depends_on:
+      - postgres_belvo
+    ports:
+      - "8091:5560"
