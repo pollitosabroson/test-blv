@@ -26,7 +26,7 @@ class UserTransaction(generics.ListCreateAPIView):
     get_serializer_list_class = UserTransactionSerializer
 
     def list(self, request, *args, **kwargs):
-        logger.error(kwargs)
+        """List users transactions."""
         user = User.objects.get(id=kwargs.get('user_id'))
         serializer = UserTransactionSerializer(user)
         return Response(serializer.data)
