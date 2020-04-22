@@ -76,7 +76,4 @@ class TestSummaryUsers:
                 **fixtures
             )
             assert status.HTTP_200_OK == response_status
-            logger.error('response_content')
-            logger.error(response_content)
-            assert conf_schema_transaction_category.validate(response_content)
             assert conf_schema_transaction_category.is_valid(response_content)
