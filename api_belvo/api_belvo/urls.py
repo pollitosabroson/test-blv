@@ -8,6 +8,7 @@ from django.conf.urls.static import static
 
 apps_patterns = [
     url(r'^users/', include('users.urls')),
+    url(r'^transactions/', include('transactions.urls')),
 ]
 
 # General api patterns
