@@ -8,7 +8,7 @@ from rest_framework import status
 
 from core.utils import parse_response_content
 from transactions.schemas import conf_schema_transaction
-from users.models import User
+from users.tests.factory import UserFactory
 
 logger = logging.getLogger(__name__)
 
@@ -37,21 +37,21 @@ class TestCreateTransactions:
     def get_success_fixtures():
         """User list for cases where the endpoint have an answer success
         """
-        f_user = User.objects.first().id
-        l_user = User.objects.last().id
+        f_user = UserFactory.get_user()
+        l_user = UserFactory.get_user(email="ohter@mail.com")
         return [
             [
                 TestCreateTransactions.get_out_fake_transaction(
                     reference=123456,
                     account=1233456,
-                    user=f_user
+                    user=f_user.id
                 )
                 for x in range(10)
             ] + [
                 TestCreateTransactions.get_in_fake_transaction(
                     reference=456789,
                     account=456789,
-                    user=l_user
+                    user=l_user.id
                 )
                 for x in range(5)
             ]
