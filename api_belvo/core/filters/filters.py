@@ -34,7 +34,7 @@ class RangeDateFilter(filters.BaseFilterBackend):
                     title=_("Date range"),
                     description=_(
                         "Filter events between dates in range. Format: "
-                        "YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]"
+                        "YYYY-MM-DD"
                     )
                 )
             ),

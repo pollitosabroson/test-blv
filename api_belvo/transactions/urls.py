@@ -11,12 +11,12 @@ urlpatterns = [
         name='create_transaction'
     ),
     url(
-        r'^(?P<user_id>[-.\w]+)$',
+        r'^/users/(?P<user_id>[-.\w]+)$',
         views.SummaryViewSet.as_view(),
         name='summary_transaction'
     ),
     url(
-        r'^(?P<user_id>[-.\w]+)/category$',
+        r'^/users/(?P<user_id>[-.\w]+)/category$',
         views.SummaryCategoryViewSet.as_view(),
         name='summary_transaction_category'
     ),
