@@ -6,7 +6,7 @@ from rest_framework import status
 
 from core.utils import parse_response_content
 from transactions.schemas import conf_schema_transaction_category
-from users.models import User
+from users.tests.factory import UserFactory
 
 logger = logging.getLogger(__name__)
 
@@ -28,7 +28,9 @@ class TestSummaryUsers:
         """User transactions for cases where the endpoint
         have an answer success
         """
-        users = User.objects.all()
+        f_user = UserFactory.get_user()
+        l_user = UserFactory.get_user(email="ohter@mail.com")
+        users = [f_user, l_user]
         return [
             {
                 'user_id': x.id
